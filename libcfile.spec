@@ -1,30 +1,35 @@
+# m4/libcerror.m4
+%define		libcerror_ver	20120425
+# m4/libclocale.m4
+%define		libclocale_ver	20120425
+# m4/libcnotify.m4
+%define		libcnotify_ver	20120425
+# m4/libuna.m4
+%define		libuna_ver	20181006
 Summary:	Library to support cross-platform C file functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi plików w C
 Name:		libcfile
-Version:	20150101
-Release:	2
+Version:	20190314
+Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	https://github.com/libyal/libcfile/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	d0be08f6cdbb85262e9943596d3b256d
-Patch0:		%{name}-system-libs.patch
+#Source0Download: https://github.com/libyal/libcfile/releases
+Source0:	https://github.com/libyal/libcfile/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
+# Source0-md5:	12751f850be67cf3b9aac14dc885f210
 URL:		https://github.com/libyal/libcfile/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-tools >= 0.18.1
-BuildRequires:	libcerror-devel >= 20120425
-BuildRequires:	libclocale-devel >= 20120425
-BuildRequires:	libcnotify-devel >= 20120425
-BuildRequires:	libcstring-devel >= 20120425
-BuildRequires:	libuna-devel >= 20120425
+BuildRequires:	libcerror-devel >= %{libcerror_ver}
+BuildRequires:	libclocale-devel >= %{libclocale_ver}
+BuildRequires:	libcnotify-devel >= %{libcnotify_ver}
+BuildRequires:	libuna-devel >= %{libuna_ver}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
-Requires:	libcerror >= 20120425
-Requires:	libclocale >= 20120425
-Requires:	libcnotify >= 20120425
-Requires:	libcstring >= 20120425
-Requires:	libuna >= 20120425
+Requires:	libcerror >= %{libcerror_ver}
+Requires:	libclocale >= %{libclocale_ver}
+Requires:	libcnotify >= %{libcnotify_ver}
+Requires:	libuna >= %{libuna_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,11 +44,10 @@ Summary:	Header files for libcfile library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libcfile
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libcerror-devel >= 20120425
-Requires:	libclocale-devel >= 20120425
-Requires:	libcnotify-devel >= 20120425
-Requires:	libcstring-devel >= 20120425
-Requires:	libuna-devel >= 20120425
+Requires:	libcerror-devel >= %{libcerror_ver}
+Requires:	libclocale-devel >= %{libclocale_ver}
+Requires:	libcnotify-devel >= %{libcnotify_ver}
+Requires:	libuna-devel >= %{libuna_ver}
 
 %description devel
 Header files for libcfile library.
@@ -65,11 +69,9 @@ Statyczna biblioteka libcfile.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
-%{__sed} -i -e 's/ po\/Makefile.in//' configure.ac
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
