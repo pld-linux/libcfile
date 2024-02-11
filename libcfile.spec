@@ -2,26 +2,26 @@
 %define		libcerror_ver	20120425
 %define		libclocale_ver	20120425
 %define		libcnotify_ver	20120425
-%define		libuna_ver	20210801
+%define		libuna_ver	20230702
 Summary:	Library to support cross-platform C file functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi plików w C
 Name:		libcfile
-Version:	20220106
+Version:	20240106
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libcfile/releases
 Source0:	https://github.com/libyal/libcfile/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
-# Source0-md5:	a4d2dcf8ae650b62738bd1072015b821
+# Source0-md5:	37adc83d407690a5f4689f4a358b99d3
 URL:		https://github.com/libyal/libcfile/
-BuildRequires:	autoconf >= 2.59
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
-BuildRequires:	gettext-tools >= 0.18.1
+BuildRequires:	gettext-tools >= 0.21
 BuildRequires:	libcerror-devel >= %{libcerror_ver}
 BuildRequires:	libclocale-devel >= %{libclocale_ver}
 BuildRequires:	libcnotify-devel >= %{libcnotify_ver}
 BuildRequires:	libuna-devel >= %{libuna_ver}
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 Requires:	libcerror >= %{libcerror_ver}
 Requires:	libclocale >= %{libclocale_ver}
