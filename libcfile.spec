@@ -6,13 +6,13 @@
 Summary:	Library to support cross-platform C file functions
 Summary(pl.UTF-8):	Biblioteka wspierająca wieloplatformowe funkcje obsługi plików w C
 Name:		libcfile
-Version:	20240414
+Version:	20260520
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/libyal/libcfile/releases
 Source0:	https://github.com/libyal/libcfile/releases/download/%{version}/%{name}-alpha-%{version}.tar.gz
-# Source0-md5:	710905cfb27a5e0c9e38484eb7125c36
+# Source0-md5:	2d1184bdf8cfbb0a0ca95fa236fdf35c
 URL:		https://github.com/libyal/libcfile/
 BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1.6
@@ -95,12 +95,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/libcfile.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcfile.so.1
+%{_libdir}/libcfile.so.*.*.*
+%ghost %{_libdir}/libcfile.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libcfile.so
+%{_libdir}/libcfile.so
 %{_includedir}/libcfile
 %{_includedir}/libcfile.h
 %{_pkgconfigdir}/libcfile.pc
